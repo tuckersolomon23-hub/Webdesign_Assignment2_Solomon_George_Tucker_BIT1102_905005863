@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Our Menu | The Good Food Restaurant</title>
+  <meta name="description" content="Starters, main courses, seafood, drinks and desserts with prices in Leones.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Kaushan+Script&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation bar -->
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a href="index.htm" class="logo">
+        <span class="logo-script">The Good Food</span>
+        <span class="logo-word">Restaurant</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+        <span class="sr-only">Open menu</span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.htm">Home</a></li>
+        <li><a href="about.htm">About</a></li>
+        <li><a href="menu.htm" class="active">Menu</a></li>
+        <li><a href="contact.htm">Contact</a></li>
+        <li><a href="order.htm" class="nav-cta">Order Online</a></li>
+        <li>
+          <a href="order.htm#search" class="search-btn" aria-label="Search the menu">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="menu" class="section menu">
+      <div class="container">
+        <h2 class="page-title">Our Menu</h2>
+        <p class="intro">Explore our menu, carefully prepared for every taste and occasion. All prices are in Leones.</p>
+
+        <div class="menu-grid">
+          <article class="menu-cat">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 24h36a18 14 0 01-36 0z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M16 18c0-4 4-4 4-8M24 18c0-4 4-4 4-8M32 18c0-3 3-3 3-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+            <h3>Starters</h3>
+            <ul>
+              <li><span>Spring Rolls</span><span>Le 35,000</span></li>
+              <li><span>Garlic Bread</span><span>Le 30,000</span></li>
+              <li><span>Chicken Wings</span><span>Le 60,000</span></li>
+            </ul>
+            <a href="order.htm?cat=starters" class="btn btn-dark btn-block">View Items</a>
+          </article>
+
+          <article class="menu-cat">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 34a16 16 0 0132 0z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M4 38h40M24 14v4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="24" cy="11" r="3" fill="none" stroke="currentColor" stroke-width="2.5"/></svg>
+            <h3>Main Courses</h3>
+            <ul>
+              <li><span>Jollof Rice</span><span>Le 80,000</span></li>
+              <li><span>Beef Stew</span><span>Le 90,000</span></li>
+              <li><span>Grilled Chicken</span><span>Le 120,000</span></li>
+            </ul>
+            <a href="order.htm?cat=mains" class="btn btn-dark btn-block">View Items</a>
+          </article>
+
+          <article class="menu-cat">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 24c8-10 22-12 32-2l6-6v16l-6-6C28 36 14 34 6 24z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><circle cx="16" cy="22" r="2" fill="currentColor"/></svg>
+            <h3>Seafood</h3>
+            <ul>
+              <li><span>Fish &amp; Chips</span><span>Le 100,000</span></li>
+              <li><span>Grilled Fish</span><span>Le 110,000</span></li>
+              <li><span>Prawn Curry</span><span>Le 130,000</span></li>
+            </ul>
+            <a href="order.htm?cat=seafood" class="btn btn-dark btn-block">View Items</a>
+          </article>
+
+          <article class="menu-cat">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M12 14h24l-3 30H15z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M26 14l4-10h6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M14 24h20" stroke="currentColor" stroke-width="2.5"/></svg>
+            <h3>Drinks</h3>
+            <ul>
+              <li><span>Fresh Juice</span><span>Le 25,000</span></li>
+              <li><span>Soft Drinks</span><span>Le 15,000</span></li>
+              <li><span>Water</span><span>Le 10,000</span></li>
+            </ul>
+            <a href="order.htm?cat=drinks" class="btn btn-dark btn-block">View Items</a>
+          </article>
+
+          <article class="menu-cat">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 40V26l36-10v24z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M6 30l36-8" stroke="currentColor" stroke-width="2.5"/><circle cx="36" cy="10" r="3" fill="currentColor"/></svg>
+            <h3>Desserts</h3>
+            <ul>
+              <li><span>Chocolate Cake</span><span>Le 40,000</span></li>
+              <li><span>Ice Cream</span><span>Le 30,000</span></li>
+              <li><span>Fruit Salad</span><span>Le 35,000</span></li>
+            </ul>
+            <a href="order.htm?cat=desserts" class="btn btn-dark btn-block">View Items</a>
+          </article>
+
+          <div class="menu-tagline">
+            <p class="script">Good Food,<br>Good Vibes</p>
+            <a href="order.htm" class="btn btn-dark">Order Online</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="logo"><span class="logo-script">The Good Food</span> <span class="logo-word">Restaurant</span></p>
+        <p>12 Main Street, Freetown, Sierra Leone</p>
+      </div>
+      <div>
+        <p><strong>Open Hours: Monday - Saturday daily</strong><br>10:00 AM to 10:00 PM</p>
+      </div>
+      <div>
+        <p><a href="tel:+23279459619">+232 79459619</a><br><a href="mailto:tuckersolomon23@gmail.com">tuckersolomon23@gmail.com</a></p>
+      </div>
+    </div>
+    <p class="copyright">&copy; 2026 The Good Food Restaurant. All rights reserved.</p>
+  </footer>
+
+  <!-- Mobile menu button -->
+  <script>
+    var navToggle = document.getElementById("navToggle");
+    var navLinks = document.getElementById("navLinks");
+    navToggle.addEventListener("click", function () {
+      var open = navLinks.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", open);
+    });
+  </script>
+</body>
+</html>

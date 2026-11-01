@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Good Food Restaurant | Freetown</title>
+  <meta name="description" content="The Good Food Restaurant, 12 Main Street, Freetown. Fresh food, popular dishes and online ordering.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Kaushan+Script&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation bar -->
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a href="index.htm" class="logo">
+        <span class="logo-script">The Good Food</span>
+        <span class="logo-word">Restaurant</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+        <span class="sr-only">Open menu</span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.htm" class="active">Home</a></li>
+        <li><a href="about.htm">About</a></li>
+        <li><a href="menu.htm">Menu</a></li>
+        <li><a href="contact.htm">Contact</a></li>
+        <li><a href="order.htm" class="nav-cta">Order Online</a></li>
+        <li>
+          <a href="order.htm#search" class="search-btn" aria-label="Search the menu">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <h1>Good Food,<br><span class="script">Great Moments</span></h1>
+          <p class="lead">Fresh ingredients, delicious meals and a cozy place for everyone, right here on Main Street, Freetown.</p>
+          <div class="hero-actions">
+            <a href="menu.htm" class="btn btn-gold">View Menu</a>
+            <a href="order.htm" class="btn btn-ghost">Order Online</a>
+          </div>
+          <p class="hero-hours">Open every day, 10:00 AM to 10:00 PM</p>
+        </div>
+        <figure class="hero-image">
+          <img src="images/hero.jpg" alt="A restaurant table with a burger and chips, pasta and fresh orange juice">
+        </figure>
+      </div>
+
+      <!-- Quick search -->
+      <div class="container">
+        <form class="quick-search" action="order.htm" method="get">
+          <div class="field">
+            <label for="qsType">Food type</label>
+            <select id="qsType" name="cat">
+              <option value="all">All</option>
+              <option value="starters">Starters</option>
+              <option value="mains">Main Courses</option>
+              <option value="seafood">Seafood</option>
+              <option value="drinks">Drinks</option>
+              <option value="desserts">Desserts</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="qsPrice">Price range</label>
+            <select id="qsPrice" name="price">
+              <option value="all">All</option>
+              <option value="low">Under Le 50,000</option>
+              <option value="mid">Le 50,000 – 100,000</option>
+              <option value="high">Over Le 100,000</option>
+            </select>
+          </div>
+          <div class="field field-grow">
+            <label for="qsText">Search</label>
+            <input type="search" id="qsText" name="q" placeholder="Search for food, e.g. jollof">
+          </div>
+          <button type="submit" class="btn btn-dark">Find food</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Popular dishes -->
+    <section class="section popular">
+      <div class="container">
+        <div class="section-head">
+          <h2>Popular Dishes</h2>
+          <a href="menu.htm" class="link">View all dishes</a>
+        </div>
+        <div class="dish-grid">
+          <article class="dish-card">
+            <img src="images/jollof-rice.jpg" alt="Jollof rice with fried plantain and salad">
+            <div class="dish-body">
+              <h3>Jollof Rice</h3>
+              <p>Rich tomato rice with vegetables and fried plantain.</p>
+              <div class="dish-foot">
+                <span class="price">Le 80,000</span>
+                <a href="order.htm?add=jollof" class="btn btn-small btn-dark">Order Now</a>
+              </div>
+            </div>
+          </article>
+          <article class="dish-card">
+            <img src="images/grilled-chicken.jpg" alt="Grilled chicken legs with salad and pepper sauce">
+            <div class="dish-body">
+              <h3>Grilled Chicken</h3>
+              <p>Chicken grilled over flame with herbs and spices.</p>
+              <div class="dish-foot">
+                <span class="price">Le 120,000</span>
+                <a href="order.htm?add=chicken" class="btn btn-small btn-dark">Order Now</a>
+              </div>
+            </div>
+          </article>
+          <article class="dish-card">
+            <img src="images/fish-chips.jpg" alt="Fried fish fillet with chips, lemon and tartar sauce">
+            <div class="dish-body">
+              <h3>Fish &amp; Chips</h3>
+              <p>Crispy fried fish with golden chips and lemon.</p>
+              <div class="dish-foot">
+                <span class="price">Le 100,000</span>
+                <a href="order.htm?add=fish" class="btn btn-small btn-dark">Order Now</a>
+              </div>
+            </div>
+          </article>
+          <article class="dish-card">
+            <img src="images/beef-stew.jpg" alt="Beef stew with carrots in a white bowl">
+            <div class="dish-body">
+              <h3>Beef Stew</h3>
+              <p>Tender beef slow-cooked with carrots and pepper.</p>
+              <div class="dish-foot">
+                <span class="price">Le 90,000</span>
+                <a href="order.htm?add=stew" class="btn btn-small btn-dark">Order Now</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Promotion + opening hours strip -->
+    <section class="promo">
+      <div class="container promo-grid">
+        <div>
+          <h2>Lunch deal, Monday to Friday</h2>
+          <p>Order any main course before 2:00 PM and get a fresh juice free. Pickup or delivery.</p>
+        </div>
+        <a href="order.htm" class="btn btn-dark">Order lunch</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="logo"><span class="logo-script">The Good Food</span> <span class="logo-word">Restaurant</span></p>
+        <p>12 Main Street, Freetown, Sierra Leone</p>
+      </div>
+      <div>
+        <p><strong>Open Hours: Monday - Saturday</strong><br>10:00 AM to 10:00 PM</p>
+      </div>
+      <div>
+        <p><a href="tel:+23279459619">+232 79459619</a><br><a href="mailto:tuckersolomon23@gmail.com">tuckersolomon23@gmail.com</a></p>
+      </div>
+    </div>
+    <p class="copyright">&copy; 2026 The Good Food Restaurant. All rights reserved.</p>
+  </footer>
+
+  <!-- Mobile menu button -->
+  <script>
+    var navToggle = document.getElementById("navToggle");
+    var navLinks = document.getElementById("navLinks");
+    navToggle.addEventListener("click", function () {
+      var open = navLinks.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", open);
+    });
+  </script>
+</body>
+</html>

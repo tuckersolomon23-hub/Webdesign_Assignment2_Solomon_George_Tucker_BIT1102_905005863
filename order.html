@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Order Online | The Good Food Restaurant</title>
+  <meta name="description" content="Filter the menu, add dishes to your cart and order for delivery or pickup.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Kaushan+Script&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation bar -->
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a href="index.htm" class="logo">
+        <span class="logo-script">The Good Food</span>
+        <span class="logo-word">Restaurant</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+        <span class="sr-only">Open menu</span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.htm">Home</a></li>
+        <li><a href="about.htm">About</a></li>
+        <li><a href="menu.htm">Menu</a></li>
+        <li><a href="contact.htm">Contact</a></li>
+        <li><a href="order.htm" class="nav-cta active">Order Online</a></li>
+        <li>
+          <a href="order.htm#search" class="search-btn" aria-label="Search the menu">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="order" class="section order">
+      <div class="container">
+        <h2 class="page-title">Menu &amp; Online Ordering</h2>
+        <p class="intro">Browse our menu, choose your favourite meals and order online for quick delivery or pickup.</p>
+
+        <div class="filter-bar">
+          <div class="field">
+            <label for="fCategory">Category</label>
+            <select id="fCategory">
+              <option value="all">All categories</option>
+              <option value="starters">Starters</option>
+              <option value="mains">Main Courses</option>
+              <option value="seafood">Seafood</option>
+              <option value="drinks">Drinks</option>
+              <option value="desserts">Desserts</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fPrice">Price range</label>
+            <select id="fPrice">
+              <option value="all">All prices</option>
+              <option value="low">Under Le 50,000</option>
+              <option value="mid">Le 50,000 – 100,000</option>
+              <option value="high">Over Le 100,000</option>
+            </select>
+          </div>
+          <div class="field field-grow">
+            <label for="fSearch">Search</label>
+            <input type="search" id="fSearch" placeholder="Search the menu">
+          </div>
+          <button class="btn btn-gold" id="applyFilters">Apply Filters</button>
+        </div>
+
+        <div class="order-grid">
+          <div class="menu-items">
+            <h3>Menu Items <span class="count" id="itemCount"></span></h3>
+            <ul id="itemList" class="item-list"></ul>
+            <p class="empty" id="emptyMsg" hidden>No dishes match these filters. Choose another category or price range, or clear the search.</p>
+          </div>
+
+          <aside class="cart" aria-labelledby="cartTitle">
+            <h3 id="cartTitle">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M3 4h2l2.5 11h11L21 7H7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="9" cy="19" r="1.6" fill="currentColor"/><circle cx="17" cy="19" r="1.6" fill="currentColor"/></svg>
+              Your Cart
+            </h3>
+            <ul id="cartList" class="cart-list"></ul>
+            <p class="cart-empty" id="cartEmpty">Your cart is empty. Add a dish to start your order.</p>
+
+            <fieldset class="method">
+              <legend>How do you want your food?</legend>
+              <label><input type="radio" name="method" value="delivery" checked> Delivery (Le 15,000)</label>
+              <label><input type="radio" name="method" value="pickup"> Pickup (free)</label>
+            </fieldset>
+
+            <dl class="totals">
+              <div><dt>Subtotal</dt><dd id="subtotal">Le 0</dd></div>
+              <div><dt>Delivery</dt><dd id="delivery">Le 0</dd></div>
+              <div class="grand"><dt>Total</dt><dd id="total">Le 0</dd></div>
+            </dl>
+            <button class="btn btn-gold btn-block" id="checkoutBtn" disabled>Proceed to Checkout</button>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ORDER CONFIRMATION  -->
+  <dialog id="confirmDialog" class="confirm">
+    <h3>Order received</h3>
+    <p id="confirmText"></p>
+    <ul id="confirmList"></ul>
+    <p class="confirm-total" id="confirmTotal"></p>
+    <button class="btn btn-dark btn-block" id="closeDialog">Done</button>
+  </dialog>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="logo"><span class="logo-script">The Good Food</span> <span class="logo-word">Restaurant</span></p>
+        <p>12 Main Street, Freetown, Sierra Leone</p>
+      </div>
+      <div>
+        <p><strong>Open Hours: Monday - Saturday</strong><br>10:00 AM to 10:00 PM</p>
+      </div>
+      <div>
+        <p><a href="tel:+23279459619">+232 79459619</a><br><a href="mailto:tuckersolomon23@gmail.com">tuckersolomon23@gmail.com</a></p>
+      </div>
+    </div>
+    <p class="copyright">&copy; 2026 The Good Food Restaurant. All rights reserved.</p>
+  </footer>
+
+  <!-- Mobile menu button -->
+  <script>
+    var navToggle = document.getElementById("navToggle");
+    var navLinks = document.getElementById("navLinks");
+    navToggle.addEventListener("click", function () {
+      var open = navLinks.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", open);
+    });
+  </script>
+
+  <!-- Menu, cart and checkout -->
+  <script>
+    // ---------- Menu data (prices in Leones) ----------
+    var MENU = [
+      { id: "jollof",  name: "Jollof Rice",     desc: "Classic rice with vegetables and fried plantain.", price: 80000,  cat: "mains",    img: "images/jollof-rice-sq.jpg" },
+      { id: "chicken", name: "Grilled Chicken", desc: "Tender chicken with herbs and spices.",            price: 120000, cat: "mains",    img: "images/grilled-chicken-sq.jpg" },
+      { id: "stew",    name: "Beef Stew",       desc: "Slow-cooked beef with carrots and pepper.",        price: 90000,  cat: "mains",    img: "images/beef-stew.jpg" },
+      { id: "fish",    name: "Fish & Chips",    desc: "Fresh fish with crispy chips and lemon.",          price: 100000, cat: "seafood",  img: "images/fish-chips-sq.jpg" },
+      { id: "prawn",   name: "Prawn Curry",     desc: "Prawns in a mild coconut curry with rice.",        price: 130000, cat: "seafood",  icon: "🍤" },
+      { id: "wings",   name: "Chicken Wings",   desc: "Spicy or mild wings with sauce.",                  price: 60000,  cat: "starters", img: "images/chicken-wings-sq.jpg" },
+      { id: "rolls",   name: "Spring Rolls",    desc: "Crispy vegetable rolls with chilli dip.",          price: 35000,  cat: "starters", icon: "🥟" },
+      { id: "juice",   name: "Fresh Juice",     desc: "Orange, pineapple or mango, made today.",          price: 25000,  cat: "drinks",   icon: "🧃" },
+      { id: "soda",    name: "Soft Drink",      desc: "Chilled can of your choice.",                      price: 15000,  cat: "drinks",   icon: "🥤" },
+      { id: "cake",    name: "Chocolate Cake",  desc: "A rich slice with chocolate sauce.",               price: 40000,  cat: "desserts", icon: "🍰" },
+      { id: "fruit",   name: "Fruit Salad",     desc: "Seasonal fruit, freshly cut.",                     price: 35000,  cat: "desserts", icon: "🍉" }
+    ];
+    var DELIVERY_FEE = 15000;
+    var cart = {};   // { id: quantity }
+    var qtys = {};   // quantity chosen on each menu row
+
+    function money(n) { return "Le " + n.toLocaleString("en-US"); }
+    function find(id) { return MENU.filter(function (m) { return m.id === id; })[0]; }
+    function inRange(price, range) {
+      if (range === "low")  return price < 50000;
+      if (range === "mid")  return price >= 50000 && price <= 100000;
+      if (range === "high") return price > 100000;
+      return true;
+    }
+
+    // ---------- Show menu items ----------
+    var itemList = document.getElementById("itemList");
+    function renderItems() {
+      var cat = document.getElementById("fCategory").value;
+      var range = document.getElementById("fPrice").value;
+      var text = document.getElementById("fSearch").value.trim().toLowerCase();
+      var list = MENU.filter(function (m) {
+        return (cat === "all" || m.cat === cat) && inRange(m.price, range) &&
+               (text === "" || (m.name + " " + m.desc).toLowerCase().indexOf(text) !== -1);
+      });
+      itemList.innerHTML = list.map(function (m) {
+        var q = qtys[m.id] || 1;
+        var pic = m.img
+          ? '<img src="' + m.img + '" alt="' + m.name + '">'
+          : '<span class="item-icon" aria-hidden="true">' + m.icon + '</span>';
+        return '<li class="item">' + pic +
+          '<div class="item-info"><h4>' + m.name + '</h4><p>' + m.desc + '</p></div>' +
+          '<span class="price">' + money(m.price) + '</span>' +
+          '<div class="qty" aria-label="Quantity for ' + m.name + '">' +
+            '<button data-dec="' + m.id + '" aria-label="Less">−</button>' +
+            '<span>' + q + '</span>' +
+            '<button data-inc="' + m.id + '" aria-label="More">+</button>' +
+          '</div>' +
+          '<button class="btn btn-small btn-dark" data-cart="' + m.id + '">Add to Cart</button>' +
+        '</li>';
+      }).join("");
+      document.getElementById("itemCount").textContent = "(" + list.length + ")";
+      document.getElementById("emptyMsg").hidden = list.length > 0;
+    }
+
+    itemList.addEventListener("click", function (e) {
+      var b = e.target.closest("button");
+      if (!b) return;
+      if (b.dataset.inc) { qtys[b.dataset.inc] = Math.min((qtys[b.dataset.inc] || 1) + 1, 20); renderItems(); }
+      if (b.dataset.dec) { qtys[b.dataset.dec] = Math.max((qtys[b.dataset.dec] || 1) - 1, 1); renderItems(); }
+      if (b.dataset.cart) {
+        addToCart(b.dataset.cart, qtys[b.dataset.cart] || 1);
+        b.textContent = "Added ✓";
+        setTimeout(function () { b.textContent = "Add to Cart"; }, 1200);
+      }
+    });
+
+    // ---------- Cart ----------
+    function addToCart(id, q) { cart[id] = (cart[id] || 0) + q; renderCart(); }
+
+    function renderCart() {
+      var ids = Object.keys(cart);
+      var sub = 0;
+      document.getElementById("cartList").innerHTML = ids.map(function (id) {
+        var m = find(id); var line = m.price * cart[id]; sub += line;
+        return '<li><span class="cart-name">' + m.name + ' <small>x' + cart[id] + '</small></span>' +
+               '<span>' + money(line) + '</span>' +
+               '<button class="remove" data-remove="' + id + '" aria-label="Remove ' + m.name + '">×</button></li>';
+      }).join("");
+      var method = document.querySelector('input[name="method"]:checked').value;
+      var fee = (ids.length && method === "delivery") ? DELIVERY_FEE : 0;
+      document.getElementById("subtotal").textContent = money(sub);
+      document.getElementById("delivery").textContent = money(fee);
+      document.getElementById("total").textContent = money(sub + fee);
+      document.getElementById("cartEmpty").hidden = ids.length > 0;
+      document.getElementById("checkoutBtn").disabled = ids.length === 0;
+    }
+
+    document.getElementById("cartList").addEventListener("click", function (e) {
+      var id = e.target.dataset.remove;
+      if (id) { delete cart[id]; renderCart(); }
+    });
+    document.querySelectorAll('input[name="method"]').forEach(function (r) { r.addEventListener("change", renderCart); });
+
+    // ---------- Filters ----------
+    document.getElementById("applyFilters").addEventListener("click", renderItems);
+    document.getElementById("fSearch").addEventListener("input", renderItems);
+    document.getElementById("fCategory").addEventListener("change", renderItems);
+    document.getElementById("fPrice").addEventListener("change", renderItems);
+
+    // ---------- Read choices sent from other pages ----------
+    // e.g. order.htm?cat=mains  or  order.htm?add=jollof
+    var params = new URLSearchParams(window.location.search);
+    if (params.get("cat"))   document.getElementById("fCategory").value = params.get("cat");
+    if (params.get("price")) document.getElementById("fPrice").value = params.get("price");
+    if (params.get("q"))     document.getElementById("fSearch").value = params.get("q");
+    if (params.get("add") && find(params.get("add"))) cart[params.get("add")] = 1;
+    if (window.location.hash === "#search") document.getElementById("fSearch").focus();
+
+    // ---------- Checkout / confirmation ----------
+    var dialog = document.getElementById("confirmDialog");
+    document.getElementById("checkoutBtn").addEventListener("click", function () {
+      var method = document.querySelector('input[name="method"]:checked').value;
+      var orderNo = "GF" + Math.floor(1000 + Math.random() * 9000);
+      document.getElementById("confirmText").textContent = "Thank you. Your order number is " + orderNo + ". " +
+        (method === "delivery" ? "We will deliver it in about 40 minutes." : "It will be ready for pickup in about 25 minutes.");
+      document.getElementById("confirmList").innerHTML = Object.keys(cart).map(function (id) {
+        return "<li>" + find(id).name + " x" + cart[id] + "</li>";
+      }).join("");
+      document.getElementById("confirmTotal").textContent = "Total: " + document.getElementById("total").textContent;
+      if (dialog.showModal) dialog.showModal(); else dialog.setAttribute("open", "");
+    });
+    document.getElementById("closeDialog").addEventListener("click", function () {
+      dialog.close ? dialog.close() : dialog.removeAttribute("open");
+      cart = {}; renderCart();
+    });
+
+    renderItems();
+    renderCart();
+  </script>
+</body>
+</html>
